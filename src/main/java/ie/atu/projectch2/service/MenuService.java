@@ -46,4 +46,8 @@ public class MenuService {
     public void deleteItem(Long id) {
         menuRepo.deleteById(id);
     }
+
+    public Menu getItemById(Long id) {
+        return menuRepo.findById(id).orElseThrow(() -> new RuntimeException("Item not found"));
+    }
 }

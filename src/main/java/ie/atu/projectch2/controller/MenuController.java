@@ -47,4 +47,10 @@ public class MenuController {
         return new ResponseEntity<>("Menu item deleted successfully", HttpStatus.OK);
 
     }
+
+    @GetMapping("/getItemById")
+    public ResponseEntity<Menu> getItemById(@RequestParam Long id) {
+        Menu menu = menuService.getItemById(id);
+        return new ResponseEntity<>(menu, HttpStatus.OK);
+    }
 }
