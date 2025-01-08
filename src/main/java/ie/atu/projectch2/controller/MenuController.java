@@ -2,6 +2,7 @@ package ie.atu.projectch2.controller;
 
 import ie.atu.projectch2.entity.Menu;
 import ie.atu.projectch2.service.MenuService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class MenuController {
 
     //CREATE
     @PostMapping("/createItem")
-    public ResponseEntity<String> createItem(@RequestBody Menu menu) {
+    public ResponseEntity<String> createItem(@Valid @RequestBody Menu menu) {
         menuService.createItem(menu);
         return new ResponseEntity<>("Menu item created successfully", HttpStatus.OK);
     }
